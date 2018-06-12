@@ -64,11 +64,38 @@ class MadlibForm extends React.Component {
          }
 
 handleSubmit = function(event) {
-    console.log('trying to handle submit');
     this.setState({completedForm: true }); 
     event.preventDefault();
 
 }.bind(this);
+
+handleClick = function() {
+    this.setState  ({
+        completedForm: false,
+        color:'',
+        pluralNoun:'',
+        adjectiveOne:'',
+        facultyOne:'',
+        adjectiveTwo:'',
+        nounOne:'',
+        numberOne:'',
+        numberTwo:'',
+        nounTwo:'',
+        adjectiveThree:'',
+        facultyTwo:'',
+        facultyThree:'',
+        adjectiveFour:'',
+        nounThree:'',
+        facultyFour:'',
+        adjectiveFive:'',
+    });
+}.bind(this);
+renderButton= function(){
+    if(this.state.completedForm){
+        return <a className="clear-button" onClick={this.handleClick}>Clear Mad Lib </a>
+    }
+    return <input type="submit" className="generate-button" value="Generate Mad Lib" />
+}
 
     render() {
 
@@ -93,7 +120,7 @@ handleSubmit = function(event) {
       return (
         <div className="card-wrapper">
             <Card> 
-                <form onSubmit={this.handle} id="madlib-form">
+                <form onSubmit={this.handleSubmit} id="madlib-form">
                 <Row style={{textAlign:'center', color:'white'}}>
                     {
                         _.map(this.inputData, (data, indexKey) => {
@@ -103,7 +130,8 @@ handleSubmit = function(event) {
                 </Row>
                 <Row>
                     <Col md="12" className="button-wrapper">
-                    <input type = "submit" className="generate-button" value="Generate Mad Lib"/>
+                    {this.renderButton()}
+                    
                     </Col>
                 </Row>
                 </form>
