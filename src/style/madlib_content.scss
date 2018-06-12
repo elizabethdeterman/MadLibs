@@ -1,0 +1,30 @@
+
+
+.showContent {
+    visibility: visible;
+}
+
+.hideContent{
+    visibility: hidden;
+
+}
+
+.content-wrapper {
+    background-color:$darkGray;
+    color: #f2f2f2;
+    padding: 42px;
+    margin-top: -22px; 
+}
+.black-label{
+    background-color: $dawsonRed;
+        border-radius: 100px;
+        width: 26px;
+        height: 26px;
+        font-size: 18px;
+        text-align: center;
+        color: white;
+        margin: 5px;
+        }  
+.bold-text{
+    color: $dawsonRed; 
+}
